@@ -1,0 +1,31 @@
+RentalCar car1 = new RentalCar("Corolla", "Toyota", 'E', 2022, 45.00);
+RentalCar car2 = new RentalCar("Civic", "Honda", 'E', 2023, 48.00);
+RentalCar car3 = new RentalCar("Camry", "Toyota", 'M', 2022, 55.00);
+RentalCar car4 = new RentalCar("Accord", "Honda", 'M', 2023, 58.00);
+RentalCar car5 = new RentalCar("3 Series", "BMW", 'L', 2023, 75.00);
+RentalCar car6 = new RentalCar("Versa", "Nissan", 'E', 2022, 42.00);
+RentalCar car7 = new RentalCar("E-Class", "Mercedes", 'L', 2023, 85.00);
+RentalCar car8 = new RentalCar("Altima", "Nissan", 'M', 2022, 52.00);
+RentalCar car9 = new RentalCar("5 Series", "BMW", 'L', 2022, 80.00);
+RentalCar car10 = new RentalCar("Elantra", "Hyundai", 'E', 2023, 46.00);
+RentalTruck truck1 = new RentalTruck("F-150", "Ford", 2022, 89.00, 2.0);
+RentalTruck truck2 = new RentalTruck("Silverado", "Chevrolet", 2023, 92.00, 2.5);
+
+
+These could be in array as 
+
+RentalCar[] cars = new RentalCar[10];
+cars[0] = new RentalCar("Corolla", "Toyota", 'E', 2022, 45.00);
+cars[1] = new RentalCar("Civic", "Honda", 'E', 2023, 48.00);
+cars[2] = new RentalCar("Camry", "Toyota", 'M', 2022, 55.00);
+cars[3] = new RentalCar("Accord", "Honda", 'M', 2023, 58.00);
+cars[4] = new RentalCar("3 Series", "BMW", 'L', 2023, 75.00);
+cars[5] = new RentalCar("Versa", "Nissan", 'E', 2022, 42.00);
+cars[6] = new RentalCar("E-Class", "Mercedes", 'L', 2023, 85.00);
+cars[7] = new RentalCar("Altima", "Nissan", 'M', 2022, 52.00);
+cars[8] = new RentalCar("5 Series", "BMW", 'L', 2022, 80.00);
+cars[9] = new RentalCar("Elantra", "Hyundai", 'E', 2023, 46.00);
+RentalTruck[] trucks = new RentalTruck[2];
+trucks[0] = new RentalTruck("F-150", "Ford", 2022, 89.00, 2.0);
+trucks[1] = new RentalTruck("Silverado", "Chevrolet", 2023, 92.00, 2.5);
+
