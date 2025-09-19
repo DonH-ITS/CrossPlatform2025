@@ -1,2 +1,2 @@
 # CrossPlatform2025
-Code for CrossPlatform Development Class 2025
+2nd Year ATU Galway Cross-Platform Development Code Snippets
