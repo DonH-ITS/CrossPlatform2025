@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Week3Lecture.MainPage">
+             x:Class="Week3Lecture.MainPage"
+             Title="Week 3 Examples">
 
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="15" x:Name="MainLayout">
@@ -30,13 +31,23 @@
                 </Image.GestureRecognizers> -->
             </Image>
             <HorizontalStackLayout>
-                <Button Text="Add/Remove Tap Gesture" Clicked="Button_Clicked" WidthRequest="150" HeightRequest="40"/>
+                <Button Text="Add/Remove Tap Gesture" Clicked="Button_Clicked" WidthRequest="250" HeightRequest="40"/>
                 <Label Text="Counter" x:Name="lblCount"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
+                
+            <!-- For a SwipeGesture and Multiple Thresholds say 5 and 40:
+                    If Someone swipes 10 pixels only the 5 handler will be called
+                    But if someone swipes 50 pixels, both handlers will be called
+                The EventArgs will not tell you how much they far they swiped with a SwipeGesture
+                While I said in lecture maybe you could handle it with a field
+                You have no control over the order of the handlers - which goes first in the queue - so this would
+                    not be reliable (race condition)
+                PanGestureRecognizer would probably be better for that suggestion, as that allows you to track exactly
+                    where the users finger/mouse cursor is at each time, you just need some maths then.                
+            -->
                 <BoxView Color="Red" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
                     <BoxView.GestureRecognizers>
-                        <SwipeGestureRecognizer Swiped="OnSwipeGesture" Threshold="5" Direction="Left"/>
                         <SwipeGestureRecognizer Swiped="OnSwipeGesture" Threshold="40" Direction="Left"/>
                         <SwipeGestureRecognizer Swiped="OnSwipeGesture" Direction="Right"/>
                         <SwipeGestureRecognizer Swiped="OnSwipeGesture" Direction="Down"/>
@@ -45,6 +56,8 @@
                 </BoxView>
                 <Label x:Name="lblWork"/>
             </HorizontalStackLayout>
+            
+            <!-- I didn't cover these drawing controls in the lecture but will talk about them later -->
             <HorizontalStackLayout>
                 <Ellipse Fill="DarkBlue" Stroke="Red" StrokeThickness="4" WidthRequest="150" HeightRequest="50" HorizontalOptions="Start" />
 
@@ -53,8 +66,8 @@
 
 
                 <Path WidthRequest="200" HeightRequest="200" Stroke="Red"
-      Aspect="Uniform"
-      HorizontalOptions="Start">
+                          Aspect="Uniform"
+                          HorizontalOptions="Start">        
                     <Path.Data>
                         <PathGeometry>
                             <PathGeometry.Figures>
