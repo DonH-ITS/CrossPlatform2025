@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conversion.MainPage" Title="Conversion App"
+             >
+
+    <VerticalStackLayout Padding="10" WidthRequest="500" HorizontalOptions="Start">
+        <Label Text="Unit Converter" 
+           FontSize="24" 
+           HorizontalOptions="Center" />
+
+        <!-- Could also change below to use TextChanged instead of Completed event -->
+        <Entry x:Name="QuantityEntry" Placeholder="Enter Number" WidthRequest="300" HorizontalOptions="Start"
+               Completed="btnCalculate_Clicked" Keyboard="Numeric"/>
+
+        <Picker x:Name="ConversionTypePicker" Title="Select Conversion" WidthRequest="300" HorizontalOptions="Start"
+                SelectedIndexChanged="btnCalculate_Clicked">
+            <Picker.Items>
+                <x:String>Kilograms to Pounds</x:String>
+                <x:String>Pounds to Kilograms</x:String>
+                <x:String>Celcius to Fahrenheit</x:String>
+                <x:String>Fahrenheit to Celsius</x:String>
+                <x:String>Kilometres to Miles</x:String>
+                <x:String>Miles to Kilometres</x:String>
+            </Picker.Items>
+        </Picker>
+        <!-- Do we still need this button with the other events updating? -->
+        <Button x:Name="btnCalculate" Text="Calculate"
+                Clicked="btnCalculate_Clicked" WidthRequest="300" HorizontalOptions="Start"/>
+
+        <Label x:Name="lblResult" 
+           Text="The conversion is: " 
+           FontSize="18" HorizontalOptions="Start"/>
+
+
+    </VerticalStackLayout>
+
+
+</ContentPage>

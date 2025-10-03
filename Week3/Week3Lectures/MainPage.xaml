@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week3Lecture.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="15" x:Name="MainLayout">
+            <Button Text="Press to Rotate Text!"
+                VerticalOptions="Center"
+                Pressed="OnButtonPressed"
+                Released="OnButtonReleased"
+                BackgroundColor="BlueViolet"
+                HorizontalOptions="Center"/>
+            <Label Text="I'm going to rotate" x:Name="label" FontSize="30"/>
+            <Label x:Name="lblTimer"/>
+            <Button Text="Button 2!" 
+                    VerticalOptions="Center"
+                    Pressed="OnButtonPressed"
+                    Released="OnButtonReleased"
+                    BackgroundColor="Red"
+                    HorizontalOptions="Center"/>
+            <Entry TextChanged="Entry_TextChanged"  Completed="Entry_Completed"/>
+            <Label Text="Entry Field1" x:Name="label1"/>
+            <Label Text="Entry Field2" x:Name="label2"/>
+            <Image Source="dotnet_bot.png" WidthRequest="200" Aspect="AspectFit" 
+                   x:Name="imgBot">
+             <!--   <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped2" NumberOfTapsRequired="2"/>
+                </Image.GestureRecognizers> -->
+            </Image>
+            <HorizontalStackLayout>
+                <Button Text="Add/Remove Tap Gesture" Clicked="Button_Clicked" WidthRequest="150" HeightRequest="40"/>
+                <Label Text="Counter" x:Name="lblCount"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <BoxView Color="Red" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
+                    <BoxView.GestureRecognizers>
+                        <SwipeGestureRecognizer Swiped="OnSwipeGesture" Threshold="5" Direction="Left"/>
+                        <SwipeGestureRecognizer Swiped="OnSwipeGesture" Threshold="40" Direction="Left"/>
+                        <SwipeGestureRecognizer Swiped="OnSwipeGesture" Direction="Right"/>
+                        <SwipeGestureRecognizer Swiped="OnSwipeGesture" Direction="Down"/>
+                        <SwipeGestureRecognizer Swiped="OnSwipeGesture" Direction="Up"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Label x:Name="lblWork"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Ellipse Fill="DarkBlue" Stroke="Red" StrokeThickness="4" WidthRequest="150" HeightRequest="50" HorizontalOptions="Start" />
+
+                <Path WidthRequest="200" HeightRequest="200" Data="M 10,100 L 100,100 100,50Z" Stroke="Green" Aspect="Uniform"
+                HorizontalOptions="Start" />
+
+
+                <Path WidthRequest="200" HeightRequest="200" Stroke="Red"
+      Aspect="Uniform"
+      HorizontalOptions="Start">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure IsClosed="True"
+                                StartPoint="10,100">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <LineSegment Point="100,100" />
+                                                <LineSegment Point="100,50" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
