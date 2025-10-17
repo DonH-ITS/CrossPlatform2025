@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage"
+             Title="Hangman">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Button Text="Start Game" WidthRequest="150" x:Name="StartBtn" 
+                    Clicked="StartBtn_Clicked" BackgroundColor="DarkRed"/>
+            <Label x:Name="lblWord" 
+               FontSize="28" 
+               HorizontalOptions="Center" 
+               Text="_" IsVisible="False"/>
+
+            <HorizontalStackLayout x:Name="GuessStack" Spacing="10" HorizontalOptions="Center" IsVisible="False">
+                <Entry x:Name="entryGuess" 
+                   Placeholder="Enter a letter" 
+                   MaxLength="1" 
+                   WidthRequest="100" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="18"  />
+                <Button Text="Guess" Clicked="OnGuessClicked" />
+            </HorizontalStackLayout>
+
+           <!-- Canvas for hangman -->
+            <GraphicsView x:Name="hangmanView" 
+                      HeightRequest="200" 
+                      WidthRequest="200"
+                      HorizontalOptions="Center" IsVisible="False"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
