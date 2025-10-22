@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnimationDemo2025.MainPage">
+
+    <VerticalStackLayout>
+        <BoxView x:Name="MyBox" 
+                     Color="Blue" 
+                     WidthRequest="100" 
+                     HeightRequest="100" />
+
+        <GraphicsView HeightRequest="300"/>
+        <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*" WidthRequest="700">
+            <Button Grid.Column="0" Text="Move Box" Clicked="OnMoveBoxClicked" />
+            <Button Grid.Column="1" Text="Fade Box" Clicked="OnFadeBoxClicked" />
+            <Button Grid.Column="2" Text="Rotate Box" Clicked="OnScaleAndRotateClicked"/>
+            <Button Grid.Column="3" Text="Move/R 2 Box" Clicked="OnMoveBoxClicked2"/>
+            <Button Grid.Column="0" Grid.Row ="1" Text="Multiple" Clicked="MultipleAnimationsClicked"/>
+            <Button Grid.Column="1" Grid.Row ="1" Text="MoveCancel" Clicked="MoveBox"/>
+            <Button Grid.Column="2" Grid.Row ="1" Text="Cancel" Clicked="CancelAnimationsClicked"/>
+            
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>
