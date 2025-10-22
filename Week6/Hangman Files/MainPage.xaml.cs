@@ -58,7 +58,6 @@ namespace Hangman
             // Don't you use character arrays in Procedural Programming?
             _displayedWord = new string('_', _theword.Length).ToCharArray();
             lblWord.Text = new string(_displayedWord);
-            lblStatus.Text = _theword;
         }
 
         // When someone clicks the box, remove the current letter
