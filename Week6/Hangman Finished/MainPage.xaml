@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage"
+             Title="Hangman">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            
+            <!-- A Label for overall record --> 
+            <Label x:Name="Recordlbl"/>
+            <Button Text="Start Game" WidthRequest="150" x:Name="StartBtn" 
+                    Clicked="StartBtn_Clicked" BackgroundColor="DarkRed"/>
+            
+            <!-- Showing the current state of the word -->
+            <Label x:Name="lblWord" 
+               FontSize="28" 
+               HorizontalOptions="Center" 
+               Text="_" IsVisible="False"/>
+            
+            <!-- Entry box for letters -->
+            <HorizontalStackLayout x:Name="GuessStack" Spacing="10" HorizontalOptions="Center" IsVisible="False">
+                <Entry x:Name="entryGuess" 
+                   Placeholder="Enter a letter" 
+                   MaxLength="1" 
+                   WidthRequest="100" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="18" 
+                   Focused="entryGuess_Focused"
+                   Completed="OnGuessClicked"/>
+                <Button x:Name="GuessBtn" Text="Guess" Clicked="OnGuessClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Missed letters -->
+            <Label x:Name="lblMisses" 
+               Text="Wrong guesses:" 
+               FontSize="18" 
+               TextColor="Gray" 
+               HorizontalOptions="Center" IsVisible="False"/>
+
+            <!-- Canvas for hangman -->
+            <GraphicsView x:Name="hangmanView" 
+                      HeightRequest="200" 
+                      WidthRequest="200"
+                      HorizontalOptions="Center" IsVisible="False"/>
+
+            <!-- Status message -->
+            <Label x:Name="lblStatus" 
+               FontSize="20" 
+               HorizontalOptions="Center"
+               TextColor="DarkRed" IsVisible="True"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
