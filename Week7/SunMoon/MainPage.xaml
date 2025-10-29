@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SunMoving.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColour}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Day theme colors -->
+            <Color x:Key="DayBackgroundColour">SkyBlue</Color>
+
+            <!-- Night theme colors -->
+            <Color x:Key="NightBackgroundColour">DarkBlue</Color>
+
+            <x:String x:Key="SunEmoji">&#x2600;</x:String>
+            <x:String x:Key="MoonEmoji">&#x1F319;</x:String>
+
+            <!-- Default theme -->
+            <Color x:Key="PageBackgroundColour">SkyBlue</Color>
+            <x:String x:Key="WeatherEmoji">&#2600;</x:String>
+            <Color x:Key="TimeLabelColour">Black</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid x:Name="MainGrid">
+        <!-- Animated sun or cloud -->
+        <Label x:Name="WeatherElement" Text="{DynamicResource WeatherEmoji}"
+                 WidthRequest="100" HeightRequest="100"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"
+                 HorizontalOptions="Start" VerticalOptions="Center" FontSize="70"/>
+
+        <!-- Time of day counter -->
+        <Label x:Name="TimeLabel" Text="0:00"
+               HorizontalOptions="Center" VerticalOptions="Start"
+               FontSize="24" Margin="0,20,0,0" TextColor="Black"/>
+
+        <!-- Buttons -->
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End">  
+		<Button x:Name="ToggleThemeButton" Text="Toggle Theme" Margin="0,0,0,20"
+                Clicked="ToggleThemeButton_Clicked"/>
+        <Button x:Name="StartButton" Text="Start Animation"
+                Margin="0,0,0,20" Clicked="StartButton_Clicked"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
