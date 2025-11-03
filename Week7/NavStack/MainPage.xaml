@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week7NavStack.MainPage">
+
+    <ContentPage.Resources>
+        <Style TargetType = "Button" >
+            <Setter Property="WidthRequest" Value="250"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Go to Page 2" Clicked="ButtonPage2_Clicked" />
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout x:Name="mainlayout">
+        <Label x:Name="TextLabel" Text="Welcome to Page 1!" HorizontalOptions="Center" />
+        <HorizontalStackLayout>
+            <Label Text="Enter Your Name : " Margin="10,10,10,10"/>
+            <Entry x:Name="nameEntry" WidthRequest="300"/>
+
+        </HorizontalStackLayout>
+        <Button Text="Go to Page 2" Clicked="ButtonPage2_Clicked" />
+        <Button Text="Go to Page 2 With Name" Clicked="ButtonPage3_Clicked" />
+        <Button Text="Go to Page 2 Receive Data" Clicked="ButtonPageReceive_Clicked"/>
+        <Button Text="Page 3 Animal" Clicked="ButtonGoto3_Clicked"/>
+        <HorizontalStackLayout>
+            <Label Text="Animal Name : "/>
+            <Label x:Name="animalName" WidthRequest="200"/>
+            <Label Text="Animal Type : "/>
+            <Label x:Name="animalType" WidthRequest="200"/>
+
+
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
