@@ -14,7 +14,7 @@ namespace Hangman
 
         private async Task ReadTheWords()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync("words.txt ");
+            using var stream = await FileSystem.OpenAppPackageFileAsync("words.txt");
             using var reader = new StreamReader(stream);
             while (!reader.EndOfStream) {
                 string? line = await reader.ReadLineAsync();
