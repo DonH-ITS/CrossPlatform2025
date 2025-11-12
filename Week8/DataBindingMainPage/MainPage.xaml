@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week8DataBindingMain.MainPage"
+             xmlns:local="clr-namespace:Week8DataBindingMain"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Entry Text="{Binding MyText}"/>
+            <Button Text="What is MyText" Clicked="CheckBtn_Clicked"/>
+
+            <HorizontalStackLayout>
+                <Label Text="Age"/>
+                <Entry Text="{Binding MyAge, Mode=TwoWay}"/>
+            </HorizontalStackLayout>
+
+             <Button Text="What is MyAge" Clicked="CheckBtn2_Clicked"/>
+
+            <Label HeightRequest="50"/>
+
+            <Button Text="Change MyText" Clicked="ChangeText"/>
+
+            <Label HeightRequest="50"/>
+            <Label x:Name="SecondsOutput"/>
+            <Label Text="{Binding Seconds, StringFormat='{0} seconds left'}"/>
+            <Button Text="Start System Timer" Clicked="Button_Clicked"/>
+            <Button Text="Start Dispatcher Timer" Clicked="Button_Clicked_1"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
+<!-- BindingContext="{x:Reference ThisPage}
+    
+    x:Name="ThisPage" 
+    
+    xmlns:local="clr-namespace:Week8DataBindingMain"
+    x:DataType="local:MainPage"
+    
+-->

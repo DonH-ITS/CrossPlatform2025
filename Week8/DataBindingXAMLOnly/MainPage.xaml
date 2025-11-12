@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week8DataBinding.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="ROTATION"
+               BindingContext="{x:Reference slider}"
+               Rotation="{Binding Value}"
+               FontAttributes="Bold"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Slider Value="180" x:Name="slider"
+                Maximum="360"
+                VerticalOptions="Center" />
+            <Label Text="{Binding Value, Source={x:Reference slider}}"/>
+
+            <Label HeightRequest="100"/>
+            <Label Text="{Binding Text, StringFormat='Hello {0}'}" 
+                   BindingContext="{x:Reference NameBox}"/>
+            <Entry x:Name="NameBox"/>
+
+            <Entry Text="{Binding Text, Mode=OneWay}" 
+                   BindingContext="{x:Reference NameBox}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
