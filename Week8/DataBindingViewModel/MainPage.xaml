@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ViewModelExample.MainPage"
+             xmlns:local="clr-namespace:ViewModelExample"
+             x:DataType="local:MyViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="{Binding ModelText}" />
+            <Entry Text="{Binding ModelText}" />
+            <Button Text="Change Text" Clicked="ChangeText_Clicked" />
+
+            <Label Text="{Binding Seconds, StringFormat='Timer : {0}'}"/>
+
+            <Button Text="{Binding StartStop}" Clicked="Button_Clicked" />
+            <ActivityIndicator IsVisible="{Binding IsRunning}" IsRunning="{Binding IsRunning}"/>
+            <Label HeightRequest="30"/>
+            <HorizontalStackLayout>
+                <Entry x:Name="title" Placeholder="Title" WidthRequest="100"/>
+                <Entry x:Name="author" Placeholder="Author" WidthRequest="100"/>
+                <Entry x:Name="publishedyear" Placeholder="Published Year" WidthRequest="100"/>
+
+            </HorizontalStackLayout>
+            <Button Clicked="AddBookButton_Clicked"  Text="Add Book" HorizontalOptions="Start"/>
+            <VerticalStackLayout  Padding="20">
+                <Label Text="Book List" FontSize="Large" HorizontalOptions="Center" />
+                <CollectionView ItemsSource="{Binding Books}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="local:Book">
+                            <VerticalStackLayout Padding="10">
+                                <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding Author}" FontSize="Small" />
+                                <Label Text="{Binding PublishedYear}" FontSize="Small" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
+    
+    
+    
+    
+    <!-- 
+        
+        xmlns:local="clr-namespace:ViewModelExample"
+        x:DataType="local:MyViewModel"
+        
+        
+        <Label
+    Text="{Binding Seconds, StringFormat='Timer : {0}'}"/>
+
+    <Button
+    Text="{Binding StartStop}" Clicked="Button_Clicked" />
+
+    <Label HeightRequest="30"/>
+    <HorizontalStackLayout>
+        <Entry x:Name="title" Placeholder="Title" WidthRequest="100"/>
+        <Entry x:Name="author" Placeholder="Author" WidthRequest="100"/>
+        <Entry x:Name="publishedyear" Placeholder="Published Year" WidthRequest="100"/>
+
+    </HorizontalStackLayout>
+    <Button Clicked="AddBookButton_Clicked"  Text="Add Book" HorizontalOptions="Start"/>
+    <VerticalStackLayout  Padding="20">
+        <Label Text="Book List" FontSize="Large" HorizontalOptions="Center" />
+        <CollectionView ItemsSource="{Binding Books}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:Book">
+                    <VerticalStackLayout Padding="10">
+                        <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" />
+                        <Label Text="{Binding Author}" FontSize="Small" />
+                        <Label Text="{Binding PublishedYear}" FontSize="Small" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    -->

@@ -1,0 +1,24 @@
+<ScrollView>
+<VerticalStackLayout Padding="20">
+        <!-- Editable library name -->
+        <Label Text="Library Name:" FontAttributes="Bold"/>
+        <Entry Text="{Binding LibraryName}" Placeholder="Enter library name"/>
+        <Label Text="{Binding LibraryName}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <CollectionView ItemsSource="{Binding Albums}" 
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedAlbum}"
+                        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding Artist}" FontSize="Small"/>
+                        <Label Text="{Binding Year}" FontSize="Small"/>
+                        <Label Text="{Binding Genre}" FontSize="Small"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ScrollView>
