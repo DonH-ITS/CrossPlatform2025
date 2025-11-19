@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JSONExample.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Entry x:Name="NameEntry" Placeholder="Name Entry"/>
+            <Entry x:Name="AgeEntry" Placeholder="Age Entry"/>
+
+            <Button Text="MakeJSON" Clicked="ButtonMake_Clicked"/>
+            
+            
+            <Entry x:Name="CopyJSON" Placeholder="Copy JSON"/>
+            <Button Text="ConvertJSON" Clicked="ButtonConvert_Clicked"/>
+
+            <Label HeightRequest="20"/>
+            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+                <Button Text="WriteJSON" Clicked="ButtonWrite_Clicked"/>
+                <Button Grid.Column="1" Text="ReadJSON" Clicked="ButtonRead_Clicked"/>
+                <Button Grid.Row ="1" Text="WriteEntry" Clicked="ButtonWriteEntry_Clicked"/>
+                <Button Grid.Row ="1" Grid.Column ="1" Text="ReadEntry" Clicked="ButtonReadEntry_Clicked"/>
+                <Button Grid.Row ="2" Text="WriteEntry List" Clicked="ButtonWriteEntryList_Clicked"/>
+                <Button Grid.Row ="2" Grid.Column ="1" Text="ReadEntry List" Clicked="ButtonReadEntryList_Clicked"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
