@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaAPI.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Button
+                x:Name="DownloadBtn"
+                Text="Get From API Using Prebuilt" 
+                Clicked="DownloadBtn_Clicked"
+                HorizontalOptions="Fill" />         
+            <Entry x:Name="AmountEntry" Placeholder="How Many Questions?"/>
+            <Picker x:Name="DifficultyPicker" Title="Pick Difficulty">
+                <Picker.Items>
+                    <x:String>Easy</x:String>
+                    <x:String>Medium</x:String>
+                    <x:String>Hard</x:String>
+                </Picker.Items>
+                
+            </Picker>
+
+            <Button x:Name="DownloadOpt"
+                    Text="Get from API"
+                    Clicked="DownloadOpt_Clicked"
+                    HorizontalOptions="Fill"/>
+            <Label x:Name="ViewContents"/>
+
+            <Label x:Name="SomeOutput"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
