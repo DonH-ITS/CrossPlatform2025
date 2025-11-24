@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicPlayer.MainPage"
+             xmlns:local="clr-namespace:MusicPlayer"
+             x:DataType="local:MusicVM"
+             Title="Music Player">
+    
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Button
+                 Text="Pick Music File"
+                 Clicked="PickButton_Clicked"
+                    HorizontalOptions="Start"
+             />
+            <Label Text="{Binding PickedFileName}" 
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+
+            <Grid IsVisible="{Binding ShowControls}" ColumnDefinitions="150,150,150" RowDefinitions="*,*,*,*">
+                <Button Text="Start" IsEnabled="{Binding MusicNotPlaying}" Clicked="StartButton_Clicked"/>
+                <Button Grid.Column="1" Text="Pause" IsEnabled="{Binding MusicPlaying}" Clicked="PauseButton_Clicked"/>
+                <Button Grid.Column="2" Text="Stop" IsEnabled="{Binding MusicPlaying}" Clicked="StopButton_Clicked"/>
+                <Label Text="Volume" Grid.Row="1"/>
+                <Label Text="Position" Grid.Row="2"/>
+                <Slider Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Maximum="1" Minimum="0" Value="{Binding MusicVolume}"  />
+                <Slider Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Maximum="{Binding MusicLength}" Minimum="0" Value="{Binding MusicPosition}" DragStarted="Start_Drag" DragCompleted="Slider_DragCompleted"/>
+                <Label Text="{Binding PositionText}" HorizontalOptions="Center" Grid.Row="3" Grid.ColumnSpan="3"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
