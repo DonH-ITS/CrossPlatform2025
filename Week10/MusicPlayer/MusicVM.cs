@@ -40,9 +40,11 @@ namespace MusicPlayer
             get => _musicPlaying;
             set
             {
-                _musicPlaying = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(MusicNotPlaying));
+                if (value != _musicPlaying) {
+                    _musicPlaying = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(MusicNotPlaying));
+                }
             }
         }
         public bool MusicNotPlaying => !MusicPlaying;
@@ -114,11 +116,14 @@ namespace MusicPlayer
             FileResult? fileResult = await FilePicker.Default.PickAsync(options);
             if (fileResult != null) {
                 try {
-                    if (fileResult.FileName.EndsWith("mp3")) {
+                    if (fileResult.FileName.EndsWith("mp3") || fileResult.FileName.EndsWith("ogg") || fileResult.FileName.EndsWith("flace")) {
                         using var stream = await fileResult.OpenReadAsync();
+                        // Make sure to stop any currently playing song before creating a new object
                         Stop();
+                        // This creates a new object with the new file, if there was an old object it will be dereferenced
                         openedMusic = AudioManager.Current.CreatePlayer(stream);
                         openedMusic.PlaybackEnded += OpenedMusic_PlaybackEnded;
+                        // Make sure all the properties bound to UI are updated
                         PickedFileName = fileResult.FileName;
                         OnPropertyChanged(nameof(MusicLength));
                         OnPropertyChanged(nameof(MusicPosition));
@@ -133,7 +138,9 @@ namespace MusicPlayer
             }
         }
 
+        // When someone clicks the stop button or it gets to the end of the song, this event handler is called
         private void OpenedMusic_PlaybackEnded(object? sender, EventArgs e) {
+            
             _timer?.Stop();
             MusicPlaying = false;
         }
@@ -141,8 +148,10 @@ namespace MusicPlayer
         public MusicVM() {
             _timer = Application.Current.Dispatcher.CreateTimer();
             _timer.Interval = TimeSpan.FromMilliseconds(100);
+            // The timer tick will update the position of the slider and also the text saying how long has been played
             _timer.Tick += ((s, e) =>
             {
+                // Only update the music position slider if someone is not dragging it
                 if (openedMusic != null && !Dragging && MusicPlaying) {
                     MusicPosition = openedMusic.CurrentPosition;
                 }

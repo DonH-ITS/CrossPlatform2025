@@ -1,6 +1,4 @@
-﻿using Plugin.Maui.Audio;
-
-namespace MusicPlayer
+﻿namespace MusicPlayer
 {
     public partial class MainPage : ContentPage
     {
@@ -13,23 +11,20 @@ namespace MusicPlayer
             BindingContext = _musicViewModel;
         }
 
+        // If you want to make this fully follow the MVVM idea, these event handlers should be replaced with Commands in the VM
         private async void PickButton_Clicked(object sender, EventArgs e) {
             await _musicViewModel.PickFile();
         }
 
-        private async void StartButton_Clicked(object sender, EventArgs e) {
+        private void StartButton_Clicked(object sender, EventArgs e) {
             _musicViewModel.Start();
         }
-
         private void PauseButton_Clicked(object sender, EventArgs e) {
             _musicViewModel?.Pause();
         }
-
         private void StopButton_Clicked(object sender, EventArgs e) {
             _musicViewModel.Stop();
         }
-
-
         private void Start_Drag(object sender, EventArgs e) {
             _musicViewModel.Dragging = true;
         }
