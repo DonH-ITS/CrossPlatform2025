@@ -116,7 +116,7 @@ namespace MusicPlayer
             FileResult? fileResult = await FilePicker.Default.PickAsync(options);
             if (fileResult != null) {
                 try {
-                    if (fileResult.FileName.EndsWith("mp3") || fileResult.FileName.EndsWith("ogg") || fileResult.FileName.EndsWith("flace")) {
+                    if (fileResult.FileName.EndsWith("mp3") || fileResult.FileName.EndsWith("ogg") || fileResult.FileName.EndsWith("flac")) {
                         using var stream = await fileResult.OpenReadAsync();
                         // Make sure to stop any currently playing song before creating a new object
                         Stop();
