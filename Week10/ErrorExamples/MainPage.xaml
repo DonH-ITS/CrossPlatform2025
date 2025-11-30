@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErrorExamples.MainPage">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Error Handling Demo"
+           FontSize="26"
+           HorizontalOptions="Center" />
+
+        <!-- Division Example -->
+        <Frame BorderColor="Gray" Padding="10">
+            <VerticalStackLayout>
+                <Label Text="Division Example:" FontAttributes="Bold"/>
+                <Entry x:Name="DivisionEntry" Placeholder="Enter a number"/>
+                <Button Text="Divide 100 by number"
+                    Clicked="OnDivideClicked"/>
+                <Label x:Name="DivisionResultLabel" TextColor="DarkBlue"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- File Example -->
+        <Frame BorderColor="Gray" Padding="10">
+            <VerticalStackLayout>
+                <Label Text="File Example:" FontAttributes="Bold"/>
+                <Button Text="Read missing file"
+                    Clicked="OnFileReadClicked"/>
+                <Label x:Name="FileResultLabel" TextColor="DarkRed"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Custom Error Example -->
+        <Frame BorderColor="Gray" Padding="10">
+            <VerticalStackLayout>
+                <Label Text="Custom Exception Example:" FontAttributes="Bold"/>
+                <Entry x:Name="AgeEntry" Placeholder="Enter age"/>
+                <Button Text="Validate Age"
+                    Clicked="OnAgeClicked"/>
+                <Label x:Name="AgeResultLabel" TextColor="Green"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Text="Waste Memory" Clicked="Button_Clicked"/>
+
+
+
+    </VerticalStackLayout>
+
+</ContentPage>
